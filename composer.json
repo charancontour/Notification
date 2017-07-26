@@ -1,0 +1,13 @@
+{
+    "name": "charan/notification",
+    "description": "Notification module",
+    "type": "library",
+    "license": "Contour",
+    "authors": [
+        {
+            "name": "charan",
+            "email": "charan@contourgroupinc.com"
+        }
+    ],
+    "require": {}
+}
