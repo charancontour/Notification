@@ -12,6 +12,7 @@ class NotificationServiceProvider extends ServiceProvider {
 	{
     $this->publishes([
       dirname(__DIR__).'/views' => base_path('resources/views/vendor/Notification'),
+      dirname(__DIR__).'/js' => base_path('public/js/vendor/Notification')
     ]);
 	}
 
