@@ -27,7 +27,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 <script>
   $(function () {
-    var socket = io('http://{{env('IP_ADDRESS', 'localhost')}}:3000');
+    var socket = io("http://{{env('IP_ADDRESS', 'localhost')}}:3000");
     socket.on("notifications-{{Auth::user()->id}}", function(msg){
       console.log(msg);
       var tbody = document.getElementById('notification-body');
