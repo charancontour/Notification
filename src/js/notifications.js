@@ -25,7 +25,7 @@ function notifyBox(msg)
       });
 
       notification.onclick = function () {
-        window.open("http://192.168.0.13/notification");      
+        window.open("http://sandpit.timelyacademy.co.uk/notification");      
       };
       
     }
