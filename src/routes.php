@@ -1,3 +1,3 @@
 <?php
 
-Route::get('notification',['middlware'=>'auth','uses'=>'Notification\Controllers\NotificationController@index']);
+Route::get('notification',['middleware'=>'auth','uses'=>'Notification\Controllers\NotificationController@index']);
