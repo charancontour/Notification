@@ -1,4 +1,4 @@
- var closeIcon = '<svg fill="#ddd" class="remove-field closeIcon" viewBox="0 0 32 32"><polygon points="24.485,27.314 27.314,24.485 18.828,16 27.314,7.515 24.485,4.686 16,13.172 7.515,4.686 4.686,7.515 13.172,16 4.686,24.485 7.515,27.314 16,18.828 "></polygon></svg>';        
+ var closeIcon = '<svg fill="#ddd" class="remove-field closeIcon" viewBox="0 0 32 32"><polygon points="24.485,27.314 27.314,24.485 18.828,16 27.314,7.515 24.485,4.686 16,13.172 7.515,4.686 4.686,7.515 13.172,16 4.686,24.485 7.515,27.314 16,18.828 "></polygon></svg>';
  var userIcon = '<svg title="UserIcon" viewBox="0 0 32 32"><path d="M20.534,16.765C23.203,15.204,25,12.315,25,9c0-4.971-4.029-9-9-9S7,4.029,7,9c0,3.315,1.797,6.204,4.466,7.765C5.962,18.651,2,23.857,2,30c0,0.681,0.065,1.345,0.159,2h27.682C29.935,31.345,30,30.681,30,30C30,23.857,26.038,18.651,20.534,16.765z M9,9c0-3.86,3.14-7,7-7s7,3.14,7,7s-3.14,7-7,7S9,12.86,9,9z M4,30c0-6.617,5.383-12,12-12s12,5.383,12,12H4z"></path></svg>';
 
 
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function notifyBox(msg)
 {
     if (!Notification) {
-      alert('Desktop notifications not available in your browser. Try Chrome.'); 
+      alert('Desktop notifications not available in your browser. Try Chrome.');
       return;
     }
 
@@ -25,9 +25,9 @@ function notifyBox(msg)
       });
 
       notification.onclick = function () {
-        window.open("http://sandpit.timelyacademy.co.uk/notification");      
+        window.open("http://sandpit.timelyacademy.co.uk/notification");
       };
-      
+
     }
       // var notifyBox = document.createElement('div');
       //     notifyBox.setAttribute('class','notifyBox active');
@@ -50,7 +50,7 @@ function notifyBox(msg)
       //     p.innerHTML = msg.type+' - '+msg.description;
       //     content.appendChild(p);
 
-      // var span = document.createElement('span');                
+      // var span = document.createElement('span');
       //     span.innerHTML = msg.created_at;
       //     content.appendChild(span);
 
@@ -79,7 +79,7 @@ function notifyDrop(msg)
       nCounter.innerHTML = count;
 
       var li = document.createElement('li');
-     
+
       var a = document.createElement('a');
           a.setAttribute('href','/notification');
 
@@ -103,7 +103,14 @@ function notifyDrop(msg)
 
           a.appendChild(content);
 
-      li.appendChild(a);    
+      li.appendChild(a);
 
      $('.notifications-list ul').prepend(li);
 }
+
+var socket = io(document.getElementById('ip_addr').value);
+
+socket.on('notifications-'+userID, function(msg){  
+  notifyBox(msg);
+  notifyDrop(msg);
+});
