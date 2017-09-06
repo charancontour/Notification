@@ -11,6 +11,7 @@
     <tr>
       <th>Type</th>
       <th>Description</th>
+      <th>Date Created</th>
     </tr>
   </thead>
   <tbody id="notification-body">
@@ -18,6 +19,7 @@
     <tr>
       <td>{{$notification->type}}</td>
       <td>{{$notification->description}}</td>
+      <td>{{$notification->created_at->format('d/m/Y H:i')}}</td>
     </tr>
     @endforeach
   </tbody>
