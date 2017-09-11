@@ -4,8 +4,11 @@
 
 // request permission on page load
 document.addEventListener('DOMContentLoaded', function () {
-  if (Notification.permission !== "granted")
-    Notification.requestPermission();
+  if(Notification){
+    if (Notification.permission !== "granted"){
+      Notification.requestPermission();
+    }
+  }
 });
 
 // Notify Box
@@ -110,7 +113,7 @@ function notifyDrop(msg)
 
 var socket = io(document.getElementById('ip_addr').value);
 
-socket.on('notifications-'+userID, function(msg){  
+socket.on('notifications-'+userID, function(msg){
   notifyBox(msg);
   notifyDrop(msg);
 });
