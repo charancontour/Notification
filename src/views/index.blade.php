@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody id="notification-body">
-    @foreach($notifications as $notification)
+    @foreach($notifications->sortByDesc('created_at') as $notification)
     <tr>
       <td>{{$notification->type}}</td>
       <td>{{$notification->description}}</td>
