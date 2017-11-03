@@ -28,6 +28,8 @@ class SendNotification extends Command implements SelfHandling {
 	public function handle()
 	{
     $notification = Notification::create($this->notification_details);
+    $notification = $notification->toArray();
+    $notification['app_name'] = env('APP_NAME','');
     Redis::publish('notifications',json_encode($notification));
     return 'true';
 	}

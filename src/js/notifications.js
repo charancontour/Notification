@@ -113,7 +113,7 @@ function notifyDrop(msg)
 
 var socket = io(document.getElementById('ip_addr').value);
 
-socket.on('notifications-'+userID, function(msg){
+socket.on(document.getElementById('app_name').value + '-notifications-'+userID, function(msg){
   notifyBox(msg);
   notifyDrop(msg);
 });
